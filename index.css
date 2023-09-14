@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  padding: 10px;
+}
+
+.feturedItems {
+  max-width: 1600px;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+.feturedItems-header {
+  width: 100%;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.feturedItems-header__h2 {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.feturedItems-header__p {
+  font-family: Lato;
+  font-weight: 400;
+  color: #9f9f9f;
+  font-size: 14px;
+}
+
+.feturedItems-main {
+  width: 100%;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 30px;
+}
+
+.product__img {
+  width: 100%;
+  height: 350px;
+  margin-bottom: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.product-info__name {
+  font-family: Lato;
+  font-weight: 400;
+  margin-bottom: 13px;
+  font-size: 13px;
+}
+
+.product-info__description {
+  font-family: Lato;
+  font-weight: 400;
+  margin-bottom: 18px;
+  color: #5d5d5d;
+  font-size: 14px;
+}
+
+.product-info__price {
+  font-family: Lato;
+  font-weight: 400;
+  color: #f16d7f;
+  font-size: 16px;
+}
