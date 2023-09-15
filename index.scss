@@ -17,7 +17,7 @@ body {
   padding: 10px;
 }
 .feturedItems {
-  max-width: 1600px;
+  max-width: 1156px;
   min-width: 300px;
   margin: 0 auto;
 }
@@ -28,48 +28,66 @@ body {
   text-align: center;
 }
 .feturedItems-header__h2 {
+  margin-bottom: 8px;
   @include font-style400();
   font-size: 30px;
+  letter-spacing: 1.2px;
+  word-spacing: 1px;
 }
 .feturedItems-header__p {
   @include font-style400();
   color: #9f9f9f;
   font-size: 14px;
+  letter-spacing: 0.5px;
 }
 .feturedItems-main {
   width: 100%;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 360px);
   gap: 30px;
 }
 
 // .product{
 // }
 
-.product__img {
+.product-img {
+  max-width: 360px;
   width: 100%;
-  height: 350px;
-  margin-bottom: 25px;
+  height: 420px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7e4e2;
+}
+
+.product__img {
   object-fit: contain;
 }
 
-// .product-info{
-// }
+.product-info {
+  padding: 10px;
+}
 
 .product-info__name {
   @include font-style400();
   margin-bottom: 13px;
   font-size: 13px;
+  letter-spacing: 0.2px;
 }
 .product-info__description {
   @include font-style300();
   margin-bottom: 18px;
   color: #5d5d5d;
   font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.7px;
+  // word-spacing: 1px;
 }
 .product-info__price {
   @include font-style400();
   color: #f16d7f;
   font-size: 16px;
+  letter-spacing: 0.7px;
 }

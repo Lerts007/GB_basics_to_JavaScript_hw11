@@ -11,7 +11,9 @@ async function fetchData() {
     data.forEach(({ name, img, description, price }) => {
       const product = `
         <div class="product">
-          <img class="product__img" src="${img}" alt="Картинка">
+          <div class="product-img">
+            <img class="product__img" src="${img}" alt="Картинка">
+          </div>
           <div class="product-info">
             <h4 class="product-info__name">${name}</h4>
             <p class="product-info__description">${description}</p>
