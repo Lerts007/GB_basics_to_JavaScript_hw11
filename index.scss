@@ -105,11 +105,17 @@ body {
   border: 1px solid #ff6a6a;
   border-radius: 2px;
   background-color: #fff;
+  cursor: pointer;
 
   &:hover {
     background-color: #ff6a6a;
     color: #fff;
   }
+}
+
+.activ__btn{
+  background-color: #ff6a6a;
+  color: #fff;
 }
 
 .cartItems {
@@ -120,10 +126,59 @@ body {
 }
 
 .cartItems-main {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 30px;
 }
 
 .cartItems-main > p {
   @include font-style400();
   font-size: 30px;
   text-align: center;
+}
+
+.itemsInCart{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.itemsInCart i{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.itemsInCart__img{
+  width: 150px;
+  height: 174px;
+}
+.itemsInCart-info{
+  margin-left: 10px
+}
+
+.itemsInCart-info__name {
+  @include font-style400();
+  margin-bottom: 13px;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+.itemsInCart-info p{
+  @include font-style300();
+  margin-bottom: 18px;
+  color: #5d5d5d;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.7px;
+}
+.itemsInCart-info input{
+  width: 25px;
+  text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
