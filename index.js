@@ -15,43 +15,18 @@ function addCartArr(data) {
       console.log(elBtn.id);
 
       // добавление товара в массив
-      console.log(
-        cartArr.find((elFind) => {
-          if (elFind.img === data[elBtn.id].img) {
-            console.log('рапва');
-          } else {
-            console.log('dsad');
-          }
-        })
-      );
-
-      cartArr.find((el) => {
-        if (el.img !== data[elBtn.id].img) {
-          cartArr.push(data[elBtn.id]);
-          addCart(data[elBtn.id]);
-          console.log('gjdnjh');
-          addLocalStorage();
-        }
-      });
-
-      if (cartArr.length === 0) {
+      if (cartArr.indexOf(data[elBtn.id]) < 0) {
         cartArr.push(data[elBtn.id]);
-        addLocalStorage();
         addCart(data[elBtn.id]);
       }
     });
   });
 }
 
-// изменение класса у копки когда добавили в корзину
+// изменение класса у кнопки когда добавили в корзину
 function changingClassOfButton(btn, textBtn) {
   btn.classList.toggle('activ__btn');
   btn.textContent = textBtn;
-}
-
-// добавление товаров в корзине в localstorage
-function addLocalStorage() {
-  localStorage.Lerts = JSON.stringify(cartArr);
 }
 
 function addCart(obj) {
@@ -73,6 +48,14 @@ function addCart(obj) {
     </div>
       `;
   cartItemsMain.insertAdjacentHTML('beforeend', product);
+
+  // отлавливаю каждый раз новую иконку после добавления
+  const iEl = document.querySelectorAll('.fa-solid');
+  iEl.forEach((el) => {
+    el.addEventListener('click', () => {
+      el.parentElement.remove();
+    });
+  });
 }
 
 async function fetchData() {
