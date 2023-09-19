@@ -5,9 +5,15 @@ fetchData();
 // Функция добавления товара в корзину
 function addCartArr(data) {
   const addCarts = document.querySelectorAll('.product-info__btn');
+  const cartItems = document.querySelector('.cartItems');
 
   addCarts.forEach((elBtn) => {
     elBtn.addEventListener('click', () => {
+      // при добавлении товара в корзину показать блок cartItems
+      if (cartItems.classList.contains('cartItemsDisable')) {
+        cartItems.classList.remove('cartItemsDisable');
+      }
+
       changingClassOfButton(elBtn, 'Добавлено');
       setTimeout(() => {
         changingClassOfButton(elBtn, 'В корзину');
@@ -30,6 +36,7 @@ function changingClassOfButton(btn, textBtn) {
 }
 
 function addCart(obj) {
+  const cartItems = document.querySelector('.cartItems');
   const cartItemsMain = document.querySelector('.cartItems-main');
 
   const product = `
@@ -51,10 +58,14 @@ function addCart(obj) {
 
   // отлавливаю каждый раз новую иконку после добавления
   const iEl = document.querySelectorAll('.fa-solid');
-  iEl.forEach((el) => {
-    el.addEventListener('click', () => {
-      el.parentElement.remove();
-    });
+  iEl[iEl.length - 1].addEventListener('click', function () {
+    this.parentElement.remove();
+    cartArr.splice(cartArr.indexOf(obj), 1);
+
+    //проверка массива. если пустой то скарыть блок с классом cartItems
+    if (cartArr.length === 0) {
+      cartItems.classList.add('cartItemsDisable');
+    }
   });
 }
 

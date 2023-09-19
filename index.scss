@@ -19,7 +19,7 @@ body {
   max-width: 1156px;
   min-width: 300px;
   margin: 0 auto;
-  padding: 96px;
+  padding: 96px 25px;
 }
 
 .headerBlock {
@@ -113,7 +113,7 @@ body {
   }
 }
 
-.activ__btn{
+.activ__btn {
   background-color: #ff6a6a;
   color: #fff;
 }
@@ -122,7 +122,10 @@ body {
   max-width: 1156px;
   min-width: 300px;
   margin: 0 auto;
-  padding: 96px;
+  padding: 96px 25px;
+}
+.cartItemsDisable {
+  display: none;
 }
 
 .cartItems-main {
@@ -138,25 +141,25 @@ body {
   text-align: center;
 }
 
-.itemsInCart{
+.itemsInCart {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.itemsInCart i{
+.itemsInCart i {
   position: absolute;
   right: 5px;
   top: 5px;
   cursor: pointer;
 }
 
-.itemsInCart__img{
+.itemsInCart__img {
   width: 150px;
   height: 174px;
 }
-.itemsInCart-info{
-  margin-left: 10px
+.itemsInCart-info {
+  margin-left: 10px;
 }
 
 .itemsInCart-info__name {
@@ -166,7 +169,7 @@ body {
   letter-spacing: 0.2px;
 }
 
-.itemsInCart-info p{
+.itemsInCart-info p {
   @include font-style300();
   margin-bottom: 18px;
   color: #5d5d5d;
@@ -174,11 +177,11 @@ body {
   line-height: 17px;
   letter-spacing: 0.7px;
 }
-.itemsInCart-info input{
+.itemsInCart-info input {
   width: 25px;
   text-align: center;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
