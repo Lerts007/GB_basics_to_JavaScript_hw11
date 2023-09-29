@@ -1,8 +1,10 @@
-let cartArr = [];
+import { ShopingCart } from './cart.js';
 
+// создание корзины класса
+const cart = new ShopingCart('Иван', 0);
 fetchData();
 
-// Функция добавления товара в корзину
+// Функция отлавливания события по кнопке
 function addCartArr(data) {
   const addCarts = document.querySelectorAll('.product-info__btn');
   const cartItems = document.querySelector('.cartItems');
@@ -14,17 +16,15 @@ function addCartArr(data) {
         cartItems.classList.remove('cartItemsDisable');
       }
 
+      //изменяю стиль кнопки и её content
       changingClassOfButton(elBtn, 'Добавлено');
       setTimeout(() => {
         changingClassOfButton(elBtn, 'В корзину');
       }, 1500);
-      console.log(elBtn.id);
 
-      // добавление товара в массив
-      if (cartArr.indexOf(data[elBtn.id]) < 0) {
-        cartArr.push(data[elBtn.id]);
-        addCart(data[elBtn.id]);
-      }
+      // добавление товара в корзину
+      cart.addCart(data[elBtn.id], elBtn.id);
+      console.log(cart.items);
     });
   });
 }
@@ -33,40 +33,6 @@ function addCartArr(data) {
 function changingClassOfButton(btn, textBtn) {
   btn.classList.toggle('activ__btn');
   btn.textContent = textBtn;
-}
-
-function addCart(obj) {
-  const cartItems = document.querySelector('.cartItems');
-  const cartItemsMain = document.querySelector('.cartItems-main');
-
-  const product = `
-    <div class="itemsInCart">
-      <i class="fa-solid fa-xmark"></i>
-      <div class="itemsInCart-img">
-        <img class="itemsInCart__img" src="${obj.img}" alt="Картинка" />
-      </div>
-      <div class="itemsInCart-info">
-        <h4 class="itemsInCart-info__name">${obj.name}</h4>
-        <p class="itemsInCart-info__price">Price: $${obj.price}</p>
-        <p class="itemsInCart-info__color">Color: ${obj.color}</p>
-        <p class="itemsInCart-info__size">Size: ${obj.size}</p>
-        <p class="itemsInCart-info__quantity">Quantity: <input type="number" max="10" /></p>
-      </div>
-    </div>
-      `;
-  cartItemsMain.insertAdjacentHTML('beforeend', product);
-
-  // отлавливаю каждый раз новую иконку после добавления
-  const iEl = document.querySelectorAll('.fa-solid');
-  iEl[iEl.length - 1].addEventListener('click', function () {
-    this.parentElement.remove();
-    cartArr.splice(cartArr.indexOf(obj), 1);
-
-    //проверка массива. если пустой то скарыть блок с классом cartItems
-    if (cartArr.length === 0) {
-      cartItems.classList.add('cartItemsDisable');
-    }
-  });
 }
 
 async function fetchData() {
